@@ -7,11 +7,16 @@ Bun.serve({
         // console.log("req is : ", req);
         //upgrade the request to a WebSocket
         if(server.upgrade(req)) {
-            return
+            return;
         }
+
+        return new Response("Upgrade failed", {status: 500})
     },
 
     websocket: {
+        open(ws) {
+            console.log("socket is open")
+        },
         message(ws, message) {
             prismaClient.user.create({
                 data: {
