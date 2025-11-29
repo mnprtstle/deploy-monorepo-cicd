@@ -35,4 +35,4 @@ jobs:
           echo "${{ secrets.KNOWN_HOSTS }}" &> /home/runner/.ssh/known_hosts
           chmod 700 ~/ssh_key
           ssh -i ~/ssh_key ubuntu@44.192.10.209 -t 
-          "ls testfolder"
+          "cd testfolder"
