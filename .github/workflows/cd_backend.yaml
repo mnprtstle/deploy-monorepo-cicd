@@ -32,4 +32,4 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
           chmod 700 ~/ssh_key
           ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@44.192.10.209 -t 
-          "docker --version"
+          "docker"
