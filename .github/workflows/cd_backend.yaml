@@ -33,4 +33,4 @@ jobs:
           chmod 700 ~/ssh_key
           ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@44.192.10.209 -t 
           "sudo docker stop user_backend &&
-          sudo docker run --name user_backend -d -p 8080:8080 mnprtstle/monorepo_backend:${{ github.sha }}"
+          sudo docker run --name user_backend -d -p 8080:8080 mnprtstle/monorepo_backend:b8078502efee21a4a51db2a02f5598d"
