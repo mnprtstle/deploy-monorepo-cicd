@@ -31,8 +31,10 @@ jobs:
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
           mkdir -p /home/runner/.ssh
-          ls /home/runner/.ssh
           touch /home/runner/.ssh/known_hosts
           echo "${{ secrets.KNOWN_HOSTS }}" &> /home/runner/.ssh/known_hosts
-          chmod 700 /home/runner/ssh_key
-          ssh -i ~/ssh_key ubuntu@44.192.10.209 -t "pwd"
+          chmod 700 ~/ssh_key
+          ssh -i ~/ssh_key ubuntu@44.192.10.209 -t 
+          "pwd"
+
+          
