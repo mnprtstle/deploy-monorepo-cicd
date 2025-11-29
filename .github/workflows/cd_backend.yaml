@@ -37,7 +37,4 @@ jobs:
           chmod 700 /home/runner/ssh_key
           ssh -i ~/ssh_key ubuntu@44.192.10.209 -t "pwd"
 
-
- 
-
           
