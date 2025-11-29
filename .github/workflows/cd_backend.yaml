@@ -32,5 +32,4 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
           chmod 700 ~/ssh_key
           ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@44.192.10.209 -t 
-          "sudo docker stop user_backend &&
-          sudo docker run --name user_backend -d -p 8080:8080 100xdevs/todo-app-backend:b15b72aad3c2f834758fad1cca2d7484204b5991"
+          "docker --version"
