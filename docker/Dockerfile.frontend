@@ -14,8 +14,8 @@ RUN bun install
 RUN bun run db:generate
 RUN DATABASE_URL=${DATABASE_URL} 
 RUN echo ${DATABASE_URL}
-RUN bun run build
+RUN bun run build:web
 
 EXPOSE 3000
 
-CMD ["bun", "run", "start:frontend"]
+CMD ["bun", "run", "start:web"]
