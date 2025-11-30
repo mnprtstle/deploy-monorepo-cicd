@@ -13,6 +13,11 @@ COPY ./apps/web ./apps/web
 RUN bun install
 RUN bun run db:generate
 ENV DATABASE_URL='postgresql://neondb_owner:npg_G2Lm8XxjAZbq@ep-orange-night-adbyq3rz-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+RUN if [[ "$DATABASE_URL" == "$DATABASEE_URL" ]]; then \
+  echo "String1 and String2 are equal." \
+else \
+  echo "String1 and String2 are not equal." \
+fi
 RUN echo "khota after this"
 RUN echo "${DATABASE_URL}"
 RUN echo "khota before this"
