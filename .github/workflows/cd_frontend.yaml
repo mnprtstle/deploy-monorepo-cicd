@@ -20,14 +20,14 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
       - name: Build and push
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: ./docker/Dockerfile.frontend
-          build-args: |
-            DATABASEE_URL='postgresql://neondb_owner:npg_G2Lm8XxjAZbq@ep-orange-night-adbyq3rz-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
           push: true
           tags: mnprtstle/monorepo_frontend:${{ github.sha }}
+          build-args: |
+            DATABASEE_URL='postgresql://neondb_owner:npg_G2Lm8XxjAZbq@ep-orange-night-adbyq3rz-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
 
       - name: Deploy to the VM
         run: |
