@@ -13,7 +13,9 @@ COPY ./apps/web ./apps/web
 RUN bun install
 RUN bun run db:generate
 ENV DATABASE_URL=${DATABASE_URL} 
+RUN echo "khota after this"
 RUN echo "${DATABASE_URL}"
+RUN echo "khota before this"
 RUN bun run build:web
 
 EXPOSE 3000
