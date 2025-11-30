@@ -25,7 +25,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile.frontend
           build-args: |
-            DATABASE_URL=${{ secrets.DATABASE_URL }}
+            DATABASEE_URL=${{ secrets.DATABASE_URL }}
           push: true
           tags: mnprtstle/monorepo_frontend:${{ github.sha }}
 
