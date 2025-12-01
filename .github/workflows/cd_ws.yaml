@@ -31,4 +31,4 @@ jobs:
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
           chmod 700 /home/runner/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@44.192.10.209 -t "docker stop user_ws || true && docker rm user_ws || true && docker run --name user_ws -d -e DATABASE_URL=${{ secrets.DATABASE_URL }}  -p 8081:8081 mnprtstle/monorepo_ws:${{ github.sha }}"
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@44.192.10.209 -t "docker stop user_ws || true && docker rm user_ws || true && docker run --name user_ws -d -e DATABASE_URL=${{ secrets.DATABASE_URL }} -p 8081:8081 mnprtstle/monorepo_ws:${{ github.sha }}"
