@@ -8,10 +8,13 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
     "db:generate": "cd packages/db && bunx prisma generate && cd ../..",
-    "build:web": "cd apps/web && bun run build && cd ../..",
+    "build:web": "cd packages/db && bunx prisma migrate deploy && bunx prisma generate && cd ../.. && cd apps/web && bun run build && cd ../..",
+    "dev:web": "cd packages/db && bunx prisma migrate dev && bunx prisma generate && cd ../.. && cd apps/web && bun run dev",
+    "dev:backend": "cd packages/db && bunx prisma migrate dev && bunx prisma generate && cd ../.. && cd apps/backend && bun run src/index.ts",
+    "dev:ws": "cd packages/db && bunx prisma migrate dev && bunx prisma generate && cd ../.. && cd apps/ws && bun run src/index.ts",
     "start:web": "cd apps/web && bun run start",
-    "start:backend": "cd apps/backend && bun run src/index.ts",
-    "start:ws": "cd apps/ws && bun run src/index.ts"
+    "start:backend": "cd packages/db && bunx prisma migrate deploy && bunx prisma generate && cd ../.. && cd apps/backend && bun run src/index.ts",
+    "start:ws": "cd packages/db && bunx prisma migrate deploy && bunx prisma generate && cd ../.. && cd apps/ws && bun run src/index.ts"
   },
   "devDependencies": {
     "prettier": "^3.6.2",
